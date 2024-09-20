@@ -1,3 +1,5 @@
+targetScope = 'subscription'
+
 // Parameters
 param resourceGroupName string = 'rg-raf'
 param location string = 'eastus'
