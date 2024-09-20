@@ -1,7 +1,7 @@
 name: 'storage-blob-create-$(Build.BuildId)'
 
 variables:
-  -group: storage-blob
+- group: storage-blob
 
 trigger: none
 pr: none
