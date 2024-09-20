@@ -1,4 +1,4 @@
-name: blob-storage
+name: 'blob-storage-create-$(Build.BuildId)-$(Build.SourceBranchName)-$(Date:yyyyMMdd.HHmmss)'
 
 trigger:
 - main
