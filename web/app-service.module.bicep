@@ -1,5 +1,5 @@
 param location string = 'eastus'
-param appServicePlan string = 'raf-appservice-plan'
+param appServicePlanName string = 'raf-appservice-plan'
 param appServiceAppName string = 'raf-appservice-web'
 
 @allowed([
@@ -11,7 +11,7 @@ param environmentType string = 'nonprod'
 var appServicePlanSkuName = (environmentType == 'prod') ? 'P2v3' : 'F1'
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
-  name: appServicePlan
+  name: appServicePlanName
   location: location
   sku: {
     name: appServicePlanSkuName
