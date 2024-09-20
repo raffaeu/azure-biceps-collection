@@ -19,5 +19,5 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az group delete --name 'rg-raf'
+      az group delete --name 'rg-raf' --yes
     addSpnToEnvironment: true
