@@ -24,6 +24,6 @@ steps:
     inlineScript: |
       az deployment sub create \
       --template-file core/storage-blob.main.bicep \
-      --location ${location} \
-      --parameters resourceGroupName=${resourceGroupName}
+      --location $(location) \
+      --parameters resourceGroupName=$(resourceGroupName)
     addSpnToEnvironment: true
