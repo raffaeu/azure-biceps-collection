@@ -4,7 +4,7 @@ param location string = 'eastus'
 param resourceGroupName string = 'rg-raf'
 
 module rgResource '../core/resource-group.module.bicep' = {
-  name: 'rgResourceModule'
+  name: 'rgAppResourceModule'
   scope: subscription()
   params: {
     location: location
