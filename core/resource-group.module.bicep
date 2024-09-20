@@ -1,4 +1,4 @@
-targetScope = 'subscription'
+targetScope = 'rg-raf'
 
 // Parameters
 param resourceGroupName string = 'myResourceGroup'
