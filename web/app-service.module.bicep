@@ -3,7 +3,7 @@ param appServicePlanName string = 'raf-appservice-plan'
 param appServiceAppName string = 'raf-appservice-web'
 param linuxFxVersion string = 'node|18-lts' // The runtime stack of web app
 
-var appServicePlanSkuName = 'F1'
+var appServicePlanSkuName = 'B1'
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
