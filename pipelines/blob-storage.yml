@@ -19,5 +19,5 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az deployment sub create --template-file core/blob-storage.bicep --location eastus
+      az deployment sub create --template-file core/storage-blob.main.bicep
     addSpnToEnvironment: true
