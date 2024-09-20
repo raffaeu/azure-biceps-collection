@@ -2,11 +2,12 @@
 param resourceGroupName string = 'myResourceGroup'
 param storageAccountName string = 'mystorageaccount'
 param containerName string = 'mycontainer'
+param location string = 'easteurope'
 
 // Define the resource group
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
-  location: 'westeurope'
+  location: location
 }
 
 // Define the storage account
