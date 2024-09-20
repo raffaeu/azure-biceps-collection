@@ -5,7 +5,7 @@ param resourceGroupName = 'rg-raf'
 
 module rgResource 'resource-group.module.bicep' = {
   name: 'rgResourceModule'
-  scope: resourceGroup(resourceGroupName)
+  scope: subscription()
   params: {
     location: location
     resourceGroupName: resourceGroupName
