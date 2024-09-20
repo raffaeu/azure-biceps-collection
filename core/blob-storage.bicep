@@ -1,3 +1,5 @@
+targetScope = 'subscription'
+
 // Parameters
 param resourceGroupName string = 'myResourceGroup'
 param storageAccountName string = 'mystorageaccount'
