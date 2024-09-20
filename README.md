@@ -1,17 +1,20 @@
-# azure-biceps-collection
-A collection of Bicep scripts for various architectures
+# Azure Bicep collection
 
-## Commands
+This project contains a list of Bicep Modules, Bicep "patterns" and Azure DevOps pipelines to get you started. All modules and patterns are parameterized, so it is easy to pick-up one pattern and customize it. Each pipeline has a **create** and a **delete** version.
 
-```bash
-# prepare shell for bicep
-az bicep install && az bicep upgrade
+## Project structure
 
-# get credentials
-az login
-
-# set context (Subscription)
-az account set --subscription [name of subscription]
-
-bicep build main.bicep
+```
+core/
+└── service.module.bicep
+pipelines/
+├── pattern-create.yml
+└── pattern-delete.yml
+patterns/
+└── pattern.main.bicep
+web/
+└── service.module.bicep
+ai/
+└── service.module.bicep
+README.md
 ```
