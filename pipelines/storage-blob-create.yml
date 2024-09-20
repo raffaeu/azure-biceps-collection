@@ -23,7 +23,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az deployment sub create \
-      --template-file core/storage-blob.main.bicep \
+      --template-file patterns/storage-blob.pattern.bicep \
       --location $(location) \
       --parameters resourceGroupName=$(resourceGroupName)
     addSpnToEnvironment: true
