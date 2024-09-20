@@ -1,16 +1,19 @@
 name: 'blob-storage-create-$(Build.BuildId)-$(Build.SourceBranchName)-$(Date:yyyyMMdd.HHmmss)'
 
 trigger:
-- main
+  branches:
+    include:
+      - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure-vsenterprise'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az deployment group create --template-file azure-biceps-collection/pipelines/blob-storage.yml
+    addSpnToEnvironment: true
