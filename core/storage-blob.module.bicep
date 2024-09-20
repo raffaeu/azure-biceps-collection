@@ -21,7 +21,7 @@ resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2021-06-01'
 }
 
 // Create containers if specified
-resource containers 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-06-01' {
+resource containers 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-06-01' = {
   parent: blobService
   name: containerName
 }
