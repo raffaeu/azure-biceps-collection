@@ -11,3 +11,11 @@ module rgResource '../core/resource-group.module.bicep' = {
     resourceGroupName: resourceGroupName
   }
 }
+
+module storageResource '../core/storage-blob.module.bicep' = {
+  name: 'storageResourceModule'
+  scope: resourceGroup(resourceGroupName)
+  params: {
+    location: location
+  }
+}
