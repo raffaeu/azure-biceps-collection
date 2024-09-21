@@ -25,5 +25,5 @@ steps:
       az deployment sub create \
       --template-file patterns/storage-blob.pattern.bicep \
       --location $(location) \
-      --parameters resourceGroupName=$(resourceGroupName)
+      --parameters resourceGroupName=$(resourceGroupName) location=$(location)
     addSpnToEnvironment: true
