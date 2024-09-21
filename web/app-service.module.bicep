@@ -7,12 +7,9 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
   location: location
   sku:  {
-  	name: 'B1'
+  	name: 'F1'
   }
   kind: 'linux'
-  properties: {
-    reserved: true
-  }
 }
 
 resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
