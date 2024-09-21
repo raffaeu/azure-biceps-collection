@@ -1,6 +1,6 @@
 targetScope = 'subscription'
 
-param location string = 'eastus'
+param location string = 'sweden'
 param resourceGroupName string = 'rg-raf'
 
 module rgResource '../core/resource-group.module.bicep' = {

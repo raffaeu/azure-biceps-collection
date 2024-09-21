@@ -1,4 +1,4 @@
-param location string = 'eastus'
+param location string = 'sweden'
 param appServicePlanName string = 'raf-appservice-plan'
 param appServiceAppName string = 'raf-appservice-web'
 param linuxFxVersion string = 'node|18-lts' // The runtime stack of web app
@@ -7,8 +7,7 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2022-03-01' = {
   name: appServicePlanName
   location: location
   sku:  {
-  	name: 'P1V2'
-    tier: 'PremiumV2'
+  	name: 'F1'
   }
   kind: 'linux'
   properties: {
