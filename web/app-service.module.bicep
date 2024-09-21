@@ -1,4 +1,4 @@
-param location string = 'sweden'
+param location string = 'swedencentral'
 param appServicePlanName string = 'raf-appservice-plan'
 param appServiceAppName string = 'raf-appservice-web'
 param linuxFxVersion string = 'node|18-lts' // The runtime stack of web app
