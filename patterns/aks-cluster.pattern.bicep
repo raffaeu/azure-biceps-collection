@@ -2,6 +2,8 @@ targetScope = 'subscription'
 
 param location string = 'eastus'
 param resourceGroupName string = 'rg-raf'
+param linuxAdminUsername string
+param sshRSAPublicKey string
 
 module rgResource '../core/resource-group.module.bicep' = {
   name: 'rgAksResourceModule'
@@ -9,5 +11,15 @@ module rgResource '../core/resource-group.module.bicep' = {
   params: {
     location: location
     resourceGroupName: resourceGroupName
+  }
+}
+
+module appResource '../containers/aks-cluster.module.bicep' = {
+  name: 'aksResourceModule'
+  scope: resourceGroup(resourceGroupName)
+  params: {
+    location: location
+    linuxAdminUsername: linuxAdminUsername
+    sshRSAPublicKey: sshRSAPublicKey
   }
 }
