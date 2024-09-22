@@ -30,5 +30,5 @@ steps:
       az deployment sub create \
       --template-file patterns/aks-cluster.pattern.bicep \
       --location $(location) \
-      --parameters resourceGroupName=$(resourceGroupName) location=$(location) linuxAdminUsername=$(linuxAdminUsername) sshRSAPublicKey=$cert
+      --parameters resourceGroupName=$(resourceGroupName) location=$(location) linuxAdminUsername=$(linuxAdminUsername) sshRSAPublicKey="$cert"
     addSpnToEnvironment: true
