@@ -15,6 +15,10 @@ steps:
   inputs:
     targetType: inline
     script: ls -la
+- task: DownloadSecureFile@1
+  name: certificate
+  inputs:
+    secureFile: 'id_rsa.pub'
 - task: AzureCLI@2
   name: deploy
   inputs:
@@ -22,8 +26,9 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
+      cert=`cat $(certificate.secureFilePath)` && echo $cert && \
       az deployment sub create \
       --template-file patterns/aks-cluster.pattern.bicep \
       --location $(location) \
-      --parameters resourceGroupName=$(resourceGroupName) location=$(location) linuxAdminUsername=$(linuxAdminUsername) sshRSAPublicKey=$(sshRSAPublicKey)
+      --parameters resourceGroupName=$(resourceGroupName) location=$(location) linuxAdminUsername=$(linuxAdminUsername) sshRSAPublicKey=$cert
     addSpnToEnvironment: true
