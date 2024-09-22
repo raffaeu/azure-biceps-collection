@@ -17,6 +17,7 @@ module rgResource '../core/resource-group.module.bicep' = {
 module appResource '../containers/aks-cluster.module.bicep' = {
   name: 'aksResourceModule'
   scope: resourceGroup(resourceGroupName)
+  dependsOn: [rgResource]
   params: {
     location: location
     linuxAdminUsername: linuxAdminUsername
