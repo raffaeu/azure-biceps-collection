@@ -32,3 +32,14 @@ steps:
       --location $(location) \
       --parameters resourceGroupName=$(resourceGroupName) location=$(location) linuxAdminUsername=$(linuxAdminUsername) sshRSAPublicKey="$cert"
     addSpnToEnvironment: true
+- task: AzureCLI@2
+  name: release
+  inputs:
+    azureSubscription: 'Azure-vsenterprise'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az aks install-cli \
+      && az aks get-credentials --resource-group $(resourceGroupName) --name aks01cluster --overwrite-existing \
+      && kubectl apply -f containers/aks-storefront.yaml
+    addSpnToEnvironment: true
