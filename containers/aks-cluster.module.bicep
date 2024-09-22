@@ -9,6 +9,7 @@ ssh-keygen -t rsa -b 4096
 param clusterName string = 'aks01cluster'
 param location string = 'eastus'
 param agentVMSize string = 'standard_d2s_v3'
+param dnsPrefix string = 'ask01dnsprefix'
 param linuxAdminUsername string
 param sshRSAPublicKey string
 
@@ -27,6 +28,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
     type: 'SystemAssigned'
   }
   properties: {
+    dnsPrefix: dnsPrefix
     agentPoolProfiles: [
       {
         name: 'agentpool'
