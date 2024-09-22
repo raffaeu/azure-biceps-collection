@@ -1,0 +1,26 @@
+name: 'aks-cluster-delete-$(Build.BuildId)'
+
+variables:
+- group: aks-cluster
+
+trigger: none
+pr: none
+  
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Bash@3
+  name: validate
+  inputs:
+    targetType: inline
+    script: ls -la
+- task: AzureCLI@2
+  name: deploy
+  inputs:
+    azureSubscription: 'Azure-vsenterprise'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az group delete --name $(resourceGroupName) --yes
+    addSpnToEnvironment: true
